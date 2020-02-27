@@ -1,0 +1,22 @@
+{% extends 'authenticate/base.html' %}
+
+
+{% block content %}
+<h1 class="text-center">Regsiter here fam</h1>
+
+<div class="col-md-6 offset-md-3">
+  <form method="POST" action="{% url 'register' %}">
+    {% csrf_token %}
+
+    {% if form.errors %}
+      <p> Your form is incomplete or has errors my good Sir/Ma'am</p>
+    {% endif %}
+
+    {{ form.as_p }}
+
+  <input type="submit" value="Register" class="btn btn-primary">
+  </form>
+</div>
+
+
+{% endblock %}
